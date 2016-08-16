@@ -71,6 +71,7 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(txtNúmerodos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 50, 30));
 
+        txtResultado.setEditable(false);
         txtResultado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtResultadoActionPerformed(evt);
@@ -79,6 +80,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(txtResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 60, 30));
 
         cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, -1, -1));
 
         pack();
@@ -93,9 +99,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNúmerodosActionPerformed
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
-
-       
+String n1,n2,res;
+int num1,num2,resultado,suma;
+  n1=txtNúmerouno.getText();
+  n2=txtNúmerodos.getText();
+  num1=Integer.parseInt(n1);
+  num2=Integer.parseInt(n2);
+  
+  suma=num1+num2;
+       res=String.valueOf(suma);
+       txtResultado.setText(res);
     }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+        txtNúmerouno.setText("");
+        txtNúmerodos.setText("");
+        txtResultado.setText("");
+        txtNúmerouno.requestFocusInWindow();
+        
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
